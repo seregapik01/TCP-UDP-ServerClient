@@ -5,13 +5,14 @@ int main()
     Server server;
     server.Initialization();
     for(;;){
-        server.TraceSockets();//
+        server.TraceSockets();
+        //TCP
         if(FD_ISSET(server.GetListenfd(),server.GetSetfd())){
             server.Connection_TCP();
         }
-    
+        //UDP
         if(FD_ISSET(server.GetUdpfd(),server.GetSetfd())){
-            server.Connection_UDP();
+            server.DataTransfer_UDP();
         }
     }
         return 0;
