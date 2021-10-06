@@ -1,15 +1,17 @@
 :notebook: Server API Overview\
- **TCP** :left_right_arrow:
+ **TCP/UDP** :left_right_arrow: 
 - Initialization
-   - [ ] socket(...)
-   - [ ] setsockopt(...)
-   - [ ] bind(...)
-   - [ ] listen(...)
-- Connection
-   - [ ] connect(...)
-   - [ ] accept(...)
-- Data transfer
-   - [ ] send(...)
-   - [ ] recv(...)
-- Termination
-   - [ ] close(...)
+   - [x] socket(...)
+   - [ ] setsockopt(...) **- optional**
+   - [x] bind(...)
+   - [x] listen(...)
+- Connection TCP
+   - [ ] connect(...) **- optional**
+   - [X] accept(...)
+- Data transfer TCP
+   - [ ] send/write(...)
+- Data transfer UDP
+   - [x] recv(...)
+   - [x] send(...) **- optional**
+- Termination ( int fd )
+   - [x] close(fd)
