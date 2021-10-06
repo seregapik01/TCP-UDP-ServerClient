@@ -8,10 +8,12 @@
 - Connection TCP
    - [ ] connect(...) **- optional**
    - [X] accept(...)
-- Data transfer TCP
+- DataTransfer TCP
    - [ ] send/write(...)
-- Data transfer UDP
+- DataTransfer UDP
    - [x] recv(...)
    - [x] send(...) **- optional**
+- TraceSockects
+   - [X] select(...) 
 - Termination ( int fd )
    - [x] close(fd)
