@@ -14,13 +14,14 @@ public:
     
     Server() = default;
     ~Server() = default;
+    Server(const Server& s) = delete;// no copies
 
     void Initialization();
     void TraceSockets();
     void Connection_TCP();
     void DataTransfer_UDP();
     void Termination(int fd);
-    void DataTransfer();// 
+    void DataTransfer(); 
 
     int GetListenfd(){return listenfd;}
     int GetUdpfd(){return udpfd;} 
