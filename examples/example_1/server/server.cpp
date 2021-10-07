@@ -1,5 +1,7 @@
 #include "server.h"
 
+// method
+
 void Server::Initialization()
 {           
         //создаем TCP сокет
@@ -47,6 +49,7 @@ void Server::TraceSockets(){
 }
 
 void Server::Connection_TCP(){
+        Numbers storage_digits;
         this->len = sizeof(this->cliaddr);
         connfd = accept(listenfd, (struct sockaddr*)&cliaddr, &len);
         if ((childpid = fork()) == 0) {
@@ -58,13 +61,27 @@ void Server::Connection_TCP(){
                 perror("TCP: read");
             }
             std::cout<<buffer<<std::endl;
-            Termination(connfd);
+
+            // парсит данные buffer
+            // заполняет структуру storage_digits
+            NumbersFromString(this->buffer,storage_digits);
+
+            // отправляем числа и их сумму  
+            if(write(connfd,storage_digits.digits.c_str(), sizeof(buffer))== -1){
+                perror("TCP: write()");
+            }
+            if(write(connfd,storage_digits.digitsSum.c_str(), sizeof(buffer))== -1){
+                perror("TCP: write()");
+            }
+            //закрываем сокет 
+            Termination(connfd);//close(connfd);
             exit(0);
         }
-    Termination(connfd);    
+    Termination(connfd);//close(connfd);    
 }
 
 void Server::DataTransfer_UDP(){
+        Numbers storage_digits;	
         len = sizeof(cliaddr);
 			bzero(buffer, sizeof(buffer));
 			printf("\nMessage from UDP client: ");
@@ -74,7 +91,20 @@ void Server::DataTransfer_UDP(){
             if(n == -1){
                 perror("UDP: recvfrom");
             }
-            std::cout<<buffer<<std::endl;
+            std::cout<<buffer<<std::endl;//puts(buffer);
+            // парсит данные buffer
+            // заполняет структуру storage_digits
+            NumbersFromString(buffer,storage_digits);
+            
+            //отправляем числа и их сумму
+            if(sendto(udpfd, storage_digits.digits.c_str(), sizeof(buffer), 0,
+				(struct sockaddr*)&cliaddr, sizeof(cliaddr))== -1){
+                perror("UDP: sendto()");
+            }
+            if(sendto(udpfd, storage_digits.digitsSum.c_str(), sizeof(buffer), 0,
+				(struct sockaddr*)&cliaddr, sizeof(cliaddr))== -1){
+                perror("UDP: sendto()");
+            }
 }
 
 void Server::Termination(int fd){

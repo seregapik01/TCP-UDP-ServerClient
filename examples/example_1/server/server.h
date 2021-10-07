@@ -6,6 +6,8 @@
 #include <string.h>
 #include <iostream>
 
+#include "utils.h"
+
 #define PORT 5000
 
 class Server
