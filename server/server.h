@@ -13,7 +13,8 @@ class Server
 public:
     
     Server() = default;
-    
+    ~Server() = default;
+
     void Initialization();
     void TraceSockets();
     void Connection_TCP();
@@ -22,11 +23,9 @@ public:
     void DataTransfer();// 
 
     int GetListenfd(){return listenfd;}
-    int GetUdpfd(){return udpfd;}
-    
+    int GetUdpfd(){return udpfd;} 
     fd_set* GetSetfd(){return &rset;}
-    ~Server() = default;
-
+    
 private:
     
     int listenfd,connfd,udpfd,nread,maxfdp1;

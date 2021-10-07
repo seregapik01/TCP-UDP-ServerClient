@@ -2,7 +2,7 @@
 
 void Server::Initialization()
 {           
-        //создаем TCP сокет
+    //создаем TCP сокет
     listenfd = socket(AF_INET, SOCK_STREAM, 0);
     if(listenfd == -1){
         perror("server: socket");
