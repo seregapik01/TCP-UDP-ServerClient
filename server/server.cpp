@@ -1,4 +1,6 @@
 #include "server.h"
+//
+
 
 void Server::Initialization()
 {           
@@ -52,22 +54,41 @@ void Server::Connection_TCP(){
         if ((childpid = fork()) == 0) {
             close(listenfd);
             bzero(buffer, sizeof(buffer));
-            printf("Message From TCP client: ");
+            std::cout<<"\nMessage From TCP client: ";
             //cчитывает данные файлового дескриптора
             if(read(connfd, buffer, sizeof(buffer))== -1){
                 perror("TCP: read");
             }
             std::cout<<buffer<<std::endl;
+            
+            //*************************************
+            // Здесь можно добавить отправку данных
+            // Используя DataTransfer_TCP
+            // Как в примере example_1
+            //*************************************
+
             Termination(connfd);
             exit(0);
         }
     Termination(connfd);    
 }
 
+void Server::DataTransfer_TCP(){
+    //********************************************
+    // Пока что message = ""
+    // Возможно этот метод будет virtual
+    //********************************************
+
+    if(write(connfd,message, sizeof(buffer))== -1){
+                perror("TCP: write()");
+            }
+    
+}
+
 void Server::DataTransfer_UDP(){
-        len = sizeof(cliaddr);
+        this->len = sizeof(cliaddr);
 			bzero(buffer, sizeof(buffer));
-			printf("\nMessage from UDP client: ");
+            std::cout<<"\nMessage from UDP client: ";
             //получаем данные с udpfd и записываем их в buffer
 			n = recvfrom(udpfd, buffer, sizeof(buffer), 0,
 						(struct sockaddr*)&cliaddr, &len);
