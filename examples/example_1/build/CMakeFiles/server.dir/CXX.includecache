@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/main_server.cpp
+server.h
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/server.h
+
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/server.cpp
+server.h
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/server.h
+
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/server.h
+sys/types.h
+-
+unistd.h
+-
+netinet/in.h
+-
+sys/socket.h
+-
+stdio.h
+-
+string.h
+-
+iostream
+-
+utils.h
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/utils.h
+
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/utils.cpp
+utils.h
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/utils.h
+vector
+-
+algorithm
+-
+
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/server/utils.h
+string
+-
+

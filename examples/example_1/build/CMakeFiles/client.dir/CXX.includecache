@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/client/client.cpp
+arpa/inet.h
+-
+netinet/in.h
+-
+stdio.h
+-
+stdlib.h
+-
+strings.h
+-
+sys/types.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+string.h
+-
+unistd.h
+-
+iostream
+-
+algorithm
+-
+cctype
+-
+

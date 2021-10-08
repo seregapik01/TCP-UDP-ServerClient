@@ -15,6 +15,13 @@ enum SERVER_DEBUG
     OFF
 };
 
+enum SETTING_SERVER
+{
+    TCP,
+    UDP,
+    TCPUDP
+};
+
 class Server
 {
 public:
