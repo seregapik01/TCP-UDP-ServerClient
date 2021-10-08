@@ -1,4 +1,0 @@
-/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/build/CMakeFiles/rebuild_cache.dir
-/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/build/CMakeFiles/edit_cache.dir
-/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/build/CMakeFiles/client.dir
-/home/serega/Documents/Git/TCP-UDP-ServerClient/examples/example_1/build/CMakeFiles/server.dir
