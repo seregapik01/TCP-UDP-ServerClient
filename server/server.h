@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
+#include <netdb.h>
 
 //Изменить Порт
 #define PORT 5000
@@ -50,7 +51,11 @@ private:
     fd_set rset;
     ssize_t n;
     socklen_t len;
-    struct sockaddr_in cliaddr,servaddr;
+    struct addrinfo cliaddr/*,servaddr*/;
+    
+    struct addrinfo servaddr,*res;//Новый способ
+    int sockfd;
+    int sockudp; 
     char const *message = "";
     void sig_chld(int);
 };
